@@ -1,8 +1,10 @@
 
 public class NumberGuesser 
 {
-	private int upper;
-	private int lower;
+	protected int upper;
+	protected int lower;
+	private int lowerBound;
+	private int upperBound;
 	private int midpoint;
 	
 	/**
@@ -47,7 +49,7 @@ public class NumberGuesser
 	 */
 	public void reset() 
 	{
-		lower=1;
-		upper=100;
+		lower=lowerBound;
+		upper=upperBound;
 	}
 }
