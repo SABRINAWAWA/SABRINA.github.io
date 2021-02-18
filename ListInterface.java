@@ -1,4 +1,3 @@
-package HW3;
 /** An interface for the ADT list.
     Entries in a list have positions that begin with 1.
     @author Frank M. Carrano
@@ -74,15 +73,4 @@ public interface ListInterface<T>
    /** Sees whether this list is empty.
        @return  True if the list is empty, or false if not. */
    public boolean isEmpty();
-   
-   public static ListInterface<String> createListContainingChar(ListInterface<String> wordList, String key) {
-		 ListInterface<String> list = new AList<String>();
-		   for (int i = 1; i <= wordList.getLength(); i++) {
-		        String str = wordList.getEntry(i);
-		        if (str.contains(String.valueOf(key))) {
-		             list.add(str);
-		        }
-		    }
-		    return list;
-		    }
 } // end ListInterface
