@@ -1,55 +1,35 @@
 
-public class NumberGuesser 
-{
-	protected int upper;
-	protected int lower;
-	private int lowerBound;
-	private int upperBound;
-	private int midpoint;
+public class NumberGuesser {
 	
-	/**
-	 * This NumberGuesser constructor allows user to initiate the lower bound and upper bound.   
-	 * @param lowerBound
-	 * @param upperBound
-	 */
-	public NumberGuesser(int lowerBound, int upperBound)
-	{
-		upper=upperBound;
-		lower=lowerBound;
+	protected int high;
+	protected int low;
+	
+	private int originalHigh;
+	private int originalLow;
+	
+	public NumberGuesser(int l, int h) {
+		low = originalLow = l;
+		high = originalHigh = h;
 	}
 	
-	/**
-	 * This lower method calculates the upper bound by midpoint minuses one. 
-	 */
-	public void lower()
-	{
-		upper=midpoint-1;
+	public int getCurrentGuess() {
+		return (high + low) / 2;
 	}
 	
-	/**
-	 * This higher method calculates the lower bound by midpoint pluses one. 
-	 */
-	public void higher()
-	{
-		lower=midpoint+1;
+	public void higher() {
+		low = getCurrentGuess() + 1;
+		if (low==getCurrentGuess())
+			throw new IllegalStateException("You are cheating!");
 	}
 	
-	/**
-	 * This getCurrentGuess method calculates the midpoint.
-	 * @return the value of midpoint.
-	 */
-	public int getCurrentGuess()
-	{
-		midpoint=(upper+lower)/2;
-		return midpoint;
+	public void lower(){
+		high = getCurrentGuess() - 1;
+		if (high==getCurrentGuess())
+			throw new IllegalStateException("You are cheating!");
 	}
 	
-	/**
-	 * This reset method resets the value of upper and lower bound to the original value.
-	 */
-	public void reset() 
-	{
-		lower=lowerBound;
-		upper=upperBound;
+	public void reset() {
+		low = originalLow;
+		high = originalHigh;
 	}
 }
