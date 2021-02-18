@@ -1,31 +1,33 @@
 public class Node<T> {
 	
-	// public for testing purposes only!!
-	public T data; // element in the list
-	public Node next; // link to next node
+	public T data;
+	public Node<T> next;
+
 
 	public Node(T dataPortion) {
-		this(dataPortion, null);
+		data = dataPortion;
+		next = null;
 	} 
 
-	public Node(T dataPortion, Node nextNode) {
+	public Node(T dataPortion, Node<T> nextNode) {
 		data = dataPortion;
 		next = nextNode;
 	} 
 
 	public T getData() {
 		return data;
-	} 
+	}
 
 	public void setData(T newData) {
 		data = newData;
 	} 
-	
-	public Node getNextNode() {
+
+	public Node<T> getNextNode() {
 		return next;
 	} 
 
-	public void setNextNode(Node nextNode) {
+	public void setNextNode(Node<T> nextNode) {
 		next = nextNode;
-	} 
+	}
+
 } 
